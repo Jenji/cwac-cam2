@@ -62,7 +62,7 @@ public class CameraFragment extends Fragment {
   private CameraController ctlr;
   private ViewGroup previewStack;
   private FloatingActionButton fabPicture;
-  private FloatingActionButton fabSwitch;
+  // private FloatingActionButton fabSwitch;
   private View progress;
   private boolean isVideoRecording=false;
   private boolean mirrorPreview=false;
@@ -173,7 +173,7 @@ public class CameraFragment extends Fragment {
 
       if (fabPicture!=null) {
         fabPicture.setEnabled(true);
-        fabSwitch.setEnabled(canSwitchSources());
+        // fabSwitch.setEnabled(canSwitchSources());
       }
     }
   }
@@ -244,6 +244,7 @@ public class CameraFragment extends Fragment {
       }
     });
 
+/*
     fabSwitch=(FloatingActionButton)v.findViewById(R.id.cwac_cam2_switch_camera);
     fabSwitch.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -262,12 +263,12 @@ public class CameraFragment extends Fragment {
     });
 
     changeMenuIconAnimation((FloatingActionMenu)v.findViewById(R.id.cwac_cam2_settings));
-
+*/
     onHiddenChanged(false); // hack, since this does not get
                             // called on initial display
     
     fabPicture.setEnabled(false);
-    fabSwitch.setEnabled(false);
+    // fabSwitch.setEnabled(false);
 
     if (ctlr!=null && ctlr.getNumberOfCameras()>0) {
       prepController();
@@ -345,7 +346,7 @@ public class CameraFragment extends Fragment {
   public void onEventMainThread(CameraEngine.OpenedEvent event) {
     if (event.exception==null) {
       progress.setVisibility(View.GONE);
-      fabSwitch.setEnabled(canSwitchSources());
+      // fabSwitch.setEnabled(canSwitchSources());
       fabPicture.setEnabled(true);
       zoomSlider=(SeekBar)getView().findViewById(R.id.cwac_cam2_zoom);
 
@@ -434,7 +435,7 @@ public class CameraFragment extends Fragment {
     }
 
     fabPicture.setEnabled(false);
-    fabSwitch.setEnabled(false);
+    // fabSwitch.setEnabled(false);
     ctlr.takePicture(b.build());
   }
 
@@ -462,7 +463,7 @@ public class CameraFragment extends Fragment {
           R.color.cwac_cam2_recording_fab);
         fabPicture.setColorPressedResId(
           R.color.cwac_cam2_recording_fab_pressed);
-        fabSwitch.setEnabled(false);
+        // fabSwitch.setEnabled(false);
         configureChronometer();
       }
       catch (Exception e) {
@@ -499,7 +500,7 @@ public class CameraFragment extends Fragment {
       R.color.cwac_cam2_picture_fab);
     fabPicture.setColorPressedResId(
       R.color.cwac_cam2_picture_fab_pressed);
-    fabSwitch.setEnabled(canSwitchSources());
+    // fabSwitch.setEnabled(canSwitchSources());
   }
 
   private boolean canSwitchSources() {

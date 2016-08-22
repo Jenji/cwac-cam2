@@ -33,6 +33,7 @@
     fab:fab_colorNormal="@color/cwac_cam2_picture_fab"
     fab:fab_colorPressed="@color/cwac_cam2_picture_fab_pressed" />
 
+<!--
   <com.github.clans.fab.FloatingActionMenu
     android:id="@+id/cwac_cam2_settings"
     android:layout_width="wrap_content"
@@ -55,6 +56,7 @@
       fab:fab_size="mini" />
 
   </com.github.clans.fab.FloatingActionMenu>
+-->
 
   <SeekBar
     android:id="@+id/cwac_cam2_zoom"
